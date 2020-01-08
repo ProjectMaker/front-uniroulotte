@@ -1,8 +1,7 @@
 import { all, call, put, takeEvery, select } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
 import jwtDecode from 'jwt-decode'
-
-import {login} from '../../api/user'
+import {login, logout} from '../../api/user'
 import {list, sendDemand} from '../../api/quotation'
 import localstorage from '../../api/localstorage'
 import {
@@ -97,6 +96,7 @@ export function* makeSigninUser({type, credentials}) {
 }
 
 export function* makeSignoutUser() {
+  yield logout()
   yield localstorage.clear()
   yield put({type: SIGNOUT_USER_SUCCESS})
   yield put(push('/account/login'))
