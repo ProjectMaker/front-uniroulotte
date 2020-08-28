@@ -56,7 +56,7 @@ class QuotationList extends Component {
           <TableCell>{quotation.email}</TableCell>
           <TableCell>{quotation.phone_number}</TableCell>
           <TableCell>{quotation.price.toLocaleString()}</TableCell>
-          <TableCell>{moment(quotation.createdAt).format('YYYY/MM/DD')}</TableCell>
+          <TableCell>{moment(quotation.createdAt).format('YYYY-MM-DD')}</TableCell>
           <TableCell onClick={() => onSelect(quotation)} className={classes.tableCellAction}>Voir le détail</TableCell>
         </TableRow>
         {selection === quotation ?
